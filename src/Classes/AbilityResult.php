@@ -40,13 +40,13 @@ class AbilityResult
         $results = [];
 
         if (!$this->passengersCountCheck) {
-            $results[] = 'Too many passengers';
+            $results[] = 'too many passengers';
         }
         if (!$this->baggageWeightCheck) {
-            $results[] = 'Baggage is too heavy';
+            $results[] = 'baggage is too heavy';
         }
         if (!$this->distanceCheck) {
-            $results[] = 'Distance is too long';
+            $results[] = 'distance is too long';
         }
 
         return implode(', ', $results);

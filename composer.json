@@ -1,0 +1,11 @@
+{
+  "name": "oleksii-yefremenko/console-test-autotransport-app",
+  "autoload": {
+    "psr-4": {
+      "TestAutoTransportApp\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.1"
+  }
+}

@@ -6,10 +6,11 @@ use TestAutoTransportApp\Classes\Driver\AutoDriver;
 
 class Auto extends BaseTransport
 {
-    public function __construct(AutoDriver $driver)
+    public function __construct(AutoDriver $driver, string $name = null, float $fuelCost = null)
     {
+        parent::__construct($fuelCost);
         $this->driver = $driver;
-        $this->name = 'Auto';
+        $this->name = $name ?: 'Auto';
         $this->passengersCount = 4;
         $this->maxBaggageWeight = 50;
         $this->fuelConsumptionPer100 = 8;

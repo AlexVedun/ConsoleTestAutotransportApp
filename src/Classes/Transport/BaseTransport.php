@@ -7,7 +7,7 @@ use TestAutoTransportApp\Classes\Driver\BaseDriver;
 
 abstract class BaseTransport
 {
-    private const FUEL_COST = 50;
+    private const FUEL_COST = 50.0;
 
     protected string $name;
     protected int $passengersCount;
@@ -16,10 +16,16 @@ abstract class BaseTransport
     protected int $maxTravelDistance;
     protected float $deprecationFactor;
     protected BaseDriver $driver;
+    protected float $fuelCost;
+
+    public function __construct(float $fuelCost = null)
+    {
+        $this->fuelCost = $fuelCost ?: self::FUEL_COST;
+    }
 
     public function getTravelCost(int $distance): float
     {
-        $transportCost = $this->deprecationFactor * $this->getFuelConsumption($distance) * self::FUEL_COST;
+        $transportCost = $this->deprecationFactor * $this->getFuelConsumption($distance) * $this->fuelCost;
 
         return $this->driver->getDriverSalary($distance) + $transportCost;
     }
